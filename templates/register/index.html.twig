@@ -1,0 +1,185 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/app/pages/register.css') }}">
+{% endblock %}
+
+{% block title %}Inscripton{% endblock %}
+
+{% block body %}
+    <div class="center-block w6 auto">
+        <h1 class="title-h1">Nous rejoindre</h1>
+
+        {% if notification %}
+            <div class="alert alert-{{notification.type}}">
+                {{notification.content|raw}}
+            </div>
+        {% endif %}
+
+        {{ form_start(form) }}
+                <h3 class="title-h3">Information du compte</h3>
+
+                <div class="flex">
+
+                    <div class="form w5">
+                        <div class="form-group" id="register_firstname_group">
+                            <span id="register_firstname_label">{{ form_label(form.firstname) }}</span>
+                            {{ form_widget(form.firstname) }}
+                        </div>
+                        {{ form_errors(form.firstname) }}
+                    </div>
+
+                    <div class="form w5">
+                        <div class="form-group" id="register_lastname_group">
+                            <span id="register_lastname_label">{{ form_label(form.lastname) }}</span>
+                            {{ form_widget(form.lastname) }}
+                        </div>
+                        {{ form_errors(form.lastname) }}
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="form w7">
+                        <div class="form-group" id="register_email_group">
+                            <span id="register_email_label">{{ form_label(form.email) }}</span>
+                            {{ form_widget(form.email) }}
+                        </div>
+                        {{ form_errors(form.email) }}
+                    </div>
+                    
+                    <div class="form w3">
+                        <div class="form-group" id="register_phone_group">
+                            <span id="register_phone_label">{{ form_label(form.phone) }}</span>
+                            {{ form_widget(form.phone) }}
+                        </div>
+                        {{ form_errors(form.phone) }}
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="form w5">
+                        <div class="form-group" id="register_password_first_group">
+                            <span id="register_password_first_label">{{ form_label(form.password.first) }}</span>
+                            <div class="flex">
+                                {{ form_widget(form.password.first) }}
+                                <img src="{{ asset('assets/svg/eye.svg') }}" alt="Afficher le mot de passe" onclick='lookPassword(document.getElementById("register_password_first"))'>
+                            </div>
+                        </div>
+                        {{ form_errors(form.password.first) }}
+                    </div>
+
+                    <div class="form w5">
+                        <div class="form-group" id="register_password_second_group">
+                            <span id="register_password_second_label">{{ form_label(form.password.second) }}</span>
+                            <div class="flex">
+                                {{ form_widget(form.password.second) }}
+                                <img src="{{ asset('assets/svg/eye.svg') }}" alt="Afficher le mot de passe" onclick='lookPassword(document.getElementById("register_password_second"))'>
+                            </div>
+                        </div>
+                        <small class="help">Le mot de passe doit contenir au moins : 1 majuscule, 1 miniscule, 1 chiffre.</small>
+                    </div>
+                </div>
+
+                <h3 class="title-h3">Adresse de postal</h3>
+
+                <div class="flex">
+                    <div class="form w10">
+                        <div class="form-group" id="register_address_group">
+                            <span id="register_address_label">{{ form_label(form.address) }}</span>
+                            {{ form_widget(form.address) }}
+                        </div>
+                        {{ form_errors(form.address) }}
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="form w6">
+                        <div class="form-group" id="register_city_group">
+                            <span id="register_city_label">{{ form_label(form.city) }}</span>
+                            {{ form_widget(form.city) }}
+                        </div>
+                        {{ form_errors(form.city) }}
+                    </div>
+
+                    <div class="form w4">
+                        <div class="form-group" id="register_zipCode_group">
+                            <span id="register_zipCode_label">{{ form_label(form.zipCode) }}</span>
+                            {{ form_widget(form.zipCode) }}
+                        </div>
+                        {{ form_errors(form.zipCode) }}
+                    </div>
+                </div>
+        {{ form_end(form) }}
+    </div>
+
+     <div class="w6 auto">
+        <p class="is_member">
+            Vous avez un compte ? <a href="{{ path('app_login') }}"> Se connecter</a>
+        </p>
+    </div>
+<script>
+    formInvalid(
+        '{{form.children.firstname.vars.valid}}', 
+        document.getElementById("register_firstname_group"), 
+        document.getElementById("register_firstname_label"), 
+        document.getElementById("register_firstname")
+    )
+
+    formInvalid(
+        '{{form.children.lastname.vars.valid}}', 
+        document.getElementById("register_lastname_group"), 
+        document.getElementById("register_lastname_label"), 
+        document.getElementById("register_lastname")
+    )
+
+    formInvalid(
+        '{{form.children.email.vars.valid}}', 
+        document.getElementById("register_email_group"), 
+        document.getElementById("register_email_label"), 
+        document.getElementById("register_email")
+    )
+
+    formInvalid(
+        '{{form.children.phone.vars.valid}}', 
+        document.getElementById("register_phone_group"), 
+        document.getElementById("register_phone_label"),
+        document.getElementById("register_phone")
+    )
+
+    formInvalid(
+        '{{form.children.password.vars.valid}}', 
+        document.getElementById("register_password_first_group"), 
+        document.getElementById("register_password_first_label"),
+        document.getElementById("register_password_first")
+    )
+
+    formInvalid(
+        '{{form.children.password.vars.valid}}', 
+        document.getElementById("register_password_second_group"),
+        document.getElementById("register_password_second_label"),
+        document.getElementById("register_password_second")
+    )
+
+    formInvalid(
+        '{{form.children.address.vars.valid}}', 
+        document.getElementById("register_address_group"), 
+        document.getElementById("register_address_label"),
+        document.getElementById("register_address")
+    )
+    
+    formInvalid(
+        '{{form.children.city.vars.valid}}', 
+        document.getElementById("register_city_group"), 
+        document.getElementById("register_city_label"),
+        document.getElementById("register_city")
+    )
+
+    formInvalid(
+        '{{form.children.zipCode.vars.valid}}', 
+        document.getElementById("register_zipCode_group"), 
+        document.getElementById("register_zipCode_label"),
+        document.getElementById("register_zipCode")
+    )
+
+</script>
+{% endblock %}

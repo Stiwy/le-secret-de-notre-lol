@@ -1,84 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Le secret de notre LOL - {% block title %}Accueil{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
-        {% endblock %}
+        {% include 'head.html.twig' %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+        {% block stylesheets %}
         {% endblock %}
     </head>
     <body>
+        {% set url = 'https://127.0.0.1:8000/' %}
 
-        <header>
-            <div class="flex">
-                <nav class="flex">
-                    <div class="flex"><strong><a class="logo" href="">Le secret de notre LOL</a></strong></div>
-                    <div class="flex nav"><a href="">Le blog</a></div>
-                    <div class="flex nav"><a href="">Les produits</a></div>
-                    <div class="flex nav"><a href="">Qui sommes-nous ?</a></div>
-                    <div class="flex nav"><a href="">Nous rejoindre</a></div>
-                    <div class="flex nav"><a href="">Nous contacter</a></div>
-                </nav>
-                <div class="flex">
-                    {% if app.user %}
-                        <div class="flex nav">
-                            Bonjour 
-                        </div>
-                    {% else %}
-                        <div class="flex nav"><a href="">Espace client</a> </div>
-                    {% endif %}
-                        <div class="flex nav"><img src="{{ asset('assets/svg/cart.svg') }}" alt=""><p class="count-cart">3</p></div>
-                </div>
-            </div>
-        </header>
+        {% include 'header.html.twig' %}$
         
         <div class="content">
             {% block body %}{% endblock %}
             <div class="minSite"></div>
         </div>
 
-        <footer>
-            <div class="footer-content">
-                <div class="header-footer">
-                    <h2>Le secret de notre LOL</h2>
-                    <h4><em>Consommer, Raisoner</em></h4>
-                </div>
-                <div class="flex">
-                    <div class="reseaux">
-                        <h5>Suivez le secret de notre lol sur :</h5>
-                        <div class="flex">
-                            <button href="" class="button-reseaux">
-                                <img class="logo-fb" src="{{ asset('assets/img/facebook-le-secret-de-notre-lol.png') }}" alt="facebook-le-secret-de-notre-lol"> 
-                                Notre page facebook
-                            </button>
-                            <button href="" class="button-reseaux">
-                                <img class="logo-insta" src="{{ asset('assets/img/instagram-le-secret-de-notre-lol.png') }}" alt="instagram-le-secret-de-notre-lol"> 
-                                Notre profils instagram
-                            </button>
-                        </div>
-                    </div>
-                    <div class="site-plan">
-                        <h5>Notre newsletter</h5>
-
-                        <form action="" class="flex-footer">
-                            <div class="form-group">
-                                <label for="newsletter-footer">S'inscrire à la newsletter</label>
-                                <input type="email" id="newsletter-footer" name="newsletter-footer" placeholder="Votre e-mail" required>
-                            </div>
-                            <button class="newsletter-footer-submit">S'inscrire</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="copy"><small>&copy; Le secret de notre LOL 2021 - 2022 created by EvolutiWeb</small></div>
-        </footer>
+        {% include 'footer.html.twig' %}
     </body>
 </html>

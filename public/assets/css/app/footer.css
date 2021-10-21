@@ -1,7 +1,7 @@
 footer {
-    background-color: white;
+    background-color: #3E3D43;
     text-align: center;
-    color: grey;
+    color: white;
 }
 
 footer h5 {
@@ -13,12 +13,20 @@ footer h5 {
     margin-right: 5px;
 }
 
+#newsletter_label_footer, #newsletter_footer {
+    background-color: #3E3D43;
+}
+
+#newsletter_footer {
+    color: white;
+}
+
 .button-reseaux {    
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 5px;
-    background: white;
+    background: unset;
     color: #6DA926;
     font-size: 1rem;
     border-radius: 8px;
@@ -50,7 +58,6 @@ footer h5 {
 }
 
 .header-footer h2 {
-    color: grey;
     font-weight: 500;
     font-size: 1.3rem;
     padding-top: 10px;
@@ -60,53 +67,21 @@ footer h5 {
 
 .header-footer h4 {
     margin: 0px;
-    color: grey;
     font-weight: 100;
     font-size: 1rem;
     opacity: 0.5;
 }
 
-.flex-footer {
-    display: flex;
-    justify-content: space-around;
-}
-
-.form-group {
-    position: relative;
-    border: solid grey 2px;
-    border-radius: 8px;
-    padding: 8px 16px;
-}
-
-.form-group label{
-    display: block;
-    position: absolute;
-    top: -12px;
-    background: white;
-    padding: 0px 5px;
-}
-
-.form-group input{
-    display: block;
-    width: 100%;
-    border: none;
-    font-size: 1rem;
-    color: #6DA926;
-}
-
-.form-group input:focus {
-    outline:  none;
-}
-
 .newsletter-footer-submit {
     color: #6DA926;
-    background-color: white;
+    background-color: unset;
     border: #6DA926 solid 2px;
     margin-left: 3px;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
     transition-duration: 0.5s;
+    padding: 8px 16px;
 }
 
 .newsletter-footer-submit:hover {

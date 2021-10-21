@@ -1,0 +1,60 @@
+.btn{
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    padding: 8px 16px;
+    width: max-content;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn-warning {
+    color: black;
+    background-color: #ffc107;
+    border: #ffc107 solid 2px;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #dc3545;
+    border: #dc3545 solid 2px;
+}
+
+.btn-outline-custom {
+    color: #6DA926;
+    background-color: white;
+    border: #6DA926 solid 2px;
+}
+
+.btn-outline-custom:hover {
+    background-color: #6DA926;
+    color: white;
+    opacity: 1 !important;
+}
+
+.btn-custom {
+    color: white;
+    background-color: #6DA926;
+    border: #6DA926 solid 2px;
+}
+
+.link {
+    color: grey;
+}
+
+.link a{
+    color: #6DA926;
+    text-decoration: none;
+}
+
+.link a:hover {
+    opacity: 0.5;
+    transition-duration: .8s;
+}
+
+.link a img {
+    vertical-align: bottom;
+}
